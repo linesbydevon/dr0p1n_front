@@ -4,7 +4,7 @@
 
 ## CONCEPT
 
-DR0P1N is a web app that enables Richmond area skaters to find and share skate spots with the local skateboarding community and those visiting from out of town.
+DR0P1N is a web app that enables skateboarder in the Richmond metro area to find and share skate spots with fellow skaters.
 
 ### FUNCTIONALITY
 
@@ -12,11 +12,13 @@ Upon registering an account, the user should be able to browse local spots, upda
 
 #### WHATS A DR0P1N?
 
-DR0P1Ns are similar to the concept of Check-Ins in the old Four Square app. The general idea is that users can arrive at a spot and DR0P1N on the app to let other users know where they're skating.
+DR0P1Ns are similar to the concept of "checking in" on the old Four Square app. The general idea is that users can arrive at a spot and DR0P1N on the app to let other users know where they're skating.
 
-It also serves the function of letting people from out of town know what spots are popular and active. 
+Users can check spots to see how many active DR0P1Ns there are. This has a couple benefits:
 
-Lastly it could be a good indicator for skateboarders who want to avoid spots that are currently crowded.
+1. It lets users from out of town know where the popular skate spots are.
+2. It lets local skaters link up with friends they see are active at a spot.
+3. It enables users to decide whether or not they want to show up to a crowded skate spot.
 
 ## GETTING STARTED
 
@@ -39,7 +41,7 @@ Lastly it could be a good indicator for skateboarders who want to avoid spots th
 
 ![DR0P1N ERD AND WIREFRAME](./readMeAssets/dr0p1n_ERD_wireframe.jpg)
 
-### TECHNOLOGY USED
+### TECHNOLOGY I INTEND TO USE
 
 1. [React.js](https://beta.reactjs.org/) for frontend
 2. [React Leaflet](https://react-leaflet.js.org/) for map rendering and interactivity
