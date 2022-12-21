@@ -4,7 +4,7 @@
 
 ## CONCEPT
 
-DR0P1N is a web app that enables skateboarder in the Richmond metro area to find and share skate spots with fellow skaters.
+DR0P1N is a web app that enables skateboarders in the Richmond metro area to find and share skate spots with fellow skaters.
 
 ### FUNCTIONALITY
 
