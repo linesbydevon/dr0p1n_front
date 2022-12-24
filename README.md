@@ -41,9 +41,21 @@ Users can check spots to see how many active DR0P1Ns there are. This has a coupl
 
 ![DR0P1N ERD AND WIREFRAME](./readMeAssets/dr0p1n_ERD_wireframe.jpg)
 
-### TECHNOLOGY I INTEND TO USE
+### TECHNOLOGY AND RESOURCES
 
+#### FRONT END TECH
 1. [React.js](https://beta.reactjs.org/) for frontend
 2. [React Leaflet](https://react-leaflet.js.org/) for map rendering and interactivity
-3. [Django](https://docs.djangoproject.com/en/4.1/) with [Django REST framework](https://www.django-rest-framework.org/) for backend modeling and serving.
+
+#### BACK END TECH
+1. [Django](https://docs.djangoproject.com/en/4.1/)
+2. [Django REST framework](https://www.django-rest-framework.org/)}
+3. [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html)
+4. [Django CORS Headers](https://pypi.org/project/django-cors-headers/)
+5. [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+
+#### BACK END RESOURCES
+1. [Authentication & Refreshing Tokens Implementation](https://youtu.be/xjMP0hspNLE) | Dennis Ivy | Youtube
+2. [Refreshing Tokens With Axios Interceptors](https://youtu.be/16-1mTdGBoM) | Dennis Ivy | Youtube
+
 
