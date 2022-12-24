@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .api.models import Spot, User, Comment, Obstacle
 
-# Register your models here.
+admin.site.register(Spot)
+admin.site.register(User)
+admin.site.register(Comment)
+admin.site.register(Obstacle)

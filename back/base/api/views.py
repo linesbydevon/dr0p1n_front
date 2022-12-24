@@ -1,11 +1,23 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth import get_user_model
+from rest_framework import viewsets
+from rest_framework import permissions
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from .models import Spot, Obstacle, Comment
+from .serializers import UserSerializer, ObstacleSerializer, CommentSerializer, SpotSerializer
 
-# Create your views here.
+class CreateUserView(CreateAPIView):
+
+    model = get_user_model()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = UserSerializer
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -20,6 +32,19 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
+
+class SpotView(viewsets.ModelViewSet):
+    queryset = Spot.objects.all()
+    serializer_class = SpotSerializer
+
+class ObstacleView(viewsets.ModelViewSet):
+    queryset = Obstacle.objects.all()
+    serializer_class = ObstacleSerializer
+
+class CommentView(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
 
 @api_view(['GET'])
 def getRoutes(request):

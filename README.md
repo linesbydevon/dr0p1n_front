@@ -53,9 +53,11 @@ Users can check spots to see how many active DR0P1Ns there are. This has a coupl
 3. [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html)
 4. [Django CORS Headers](https://pypi.org/project/django-cors-headers/)
 5. [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+6. [Pillow](https://pillow.readthedocs.io/en/stable/installation.html)
 
 #### BACK END RESOURCES
 1. [Authentication & Refreshing Tokens Implementation](https://youtu.be/xjMP0hspNLE) | Dennis Ivy | Youtube
 2. [Refreshing Tokens With Axios Interceptors](https://youtu.be/16-1mTdGBoM) | Dennis Ivy | Youtube
+3. [JWT.IO](https://jwt.io/) for decoding tokens/testing.
 
 
