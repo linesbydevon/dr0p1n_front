@@ -123,7 +123,7 @@ main{
   width: 100%;
   border: none;
   font-size: 1rem;
-  padding: 8px;
+  padding: 10px 8px 8px;
   border-bottom: 2px solid rgba(var(--tint8),1);
   background: rgba(var(--tint8),1);
   margin-bottom: 16px;
@@ -162,6 +162,24 @@ main{
 .form_login_register p {
   text-align: center;
   display: block;
+}
+
+.inputWrapper{
+  position: relative;
+}
+
+.inputWrapper svg{
+  fill: rgba(var(--tint2),1);
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  transform: scale(50%);
+  cursor: pointer;
+  transition: all .6s ease;
+}
+
+.inputWrapper svg:hover{
+  fill: rgba(var(--brandLight),1);
 }
 
 footer{

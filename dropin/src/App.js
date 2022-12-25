@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import AuthContext from './context/AuthContext';
 import {Routes, Route} from 'react-router-dom';
 import {useContext } from 'react'
+import Register from './pages/Register'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <main>
         <Routes>
         <Route path="/" exact element={!user ? <LoginPage/>:<Homepage/>}/>
+        <Route path="/register" element={<Register/>}/>
         </Routes>
         </main>
      
