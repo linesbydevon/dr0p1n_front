@@ -1,6 +1,6 @@
 from django.urls import path,include
 from . import views
-from .views import MyTokenObtainPairView, CreateUserView, SpotView, ObstacleView, CommentView
+from .views import MyTokenObtainPairView, CreateUserView, SpotView, ObstacleView, CommentView, SkaterView
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
@@ -10,6 +10,7 @@ route = routers.DefaultRouter()
 route.register("spots",SpotView, basename='spotsview')
 route.register("comments",CommentView,basename='commentsview')
 route.register("obstacles",ObstacleView,basename='obstaclesview')
+route.register("skaters",SkaterView,basename='skatersview')
 
 urlpatterns = [
   path('', include(route.urls)),

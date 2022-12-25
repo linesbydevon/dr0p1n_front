@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import User, Spot, Obstacle, Comment
+from .models import Skater, Spot, Obstacle, Comment
 
 
 
@@ -32,5 +32,12 @@ class SpotSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Spot
+        model = Comment
         fields = '__all__'
+
+class SkaterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skater
+        fields = '__all__'
+
+

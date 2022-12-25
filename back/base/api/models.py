@@ -16,7 +16,7 @@ class Spot(models.Model):
   def __str__(self):
       return self.name
 
-class User(models.Model):
+class Skater(models.Model):
   image = models.ImageField(upload_to='uploads/images/', null=True, blank=True)
   user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
   dropin = models.ForeignKey(Spot, on_delete=models.SET_NULL, related_name='dropins', null=True, blank=True)

@@ -8,8 +8,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .models import Spot, Obstacle, Comment
-from .serializers import UserSerializer, ObstacleSerializer, CommentSerializer, SpotSerializer
+from .models import Spot, Obstacle, Comment, Skater
+from .serializers import UserSerializer, ObstacleSerializer, CommentSerializer, SpotSerializer, SkaterSerializer
 
 class CreateUserView(CreateAPIView):
 
@@ -44,6 +44,11 @@ class ObstacleView(viewsets.ModelViewSet):
 class CommentView(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+class SkaterView(viewsets.ModelViewSet):
+    queryset = Skater.objects.all()
+    serializer_class = SkaterSerializer
+
 
 
 @api_view(['GET'])
