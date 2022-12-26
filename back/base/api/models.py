@@ -27,7 +27,7 @@ class Skater(models.Model):
 class Comment(models.Model):
   image = models.ImageField(upload_to='uploads/images/', null=True, blank=True)
   spot = models.ForeignKey(Spot, on_delete=models.CASCADE, related_name='spotcomments')
-  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='usercomments')
+  user = models.ForeignKey(Skater, on_delete=models.CASCADE, related_name='usercomments')
   content = models.TextField(null=True, blank=True)
   
   def __str__(self):
