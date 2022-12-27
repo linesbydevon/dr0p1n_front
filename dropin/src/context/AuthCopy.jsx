@@ -1,6 +1,5 @@
 import {createContext, useState, useEffect} from 'react'
 import jwt_decode from "jwt-decode";
-import axios from 'axios';
 
 const AuthContext = createContext()
 
@@ -10,22 +9,26 @@ export const AuthProvider = ({children}) => {
   let [loading, setLoading] = useState(true);
   let [user, setUser] = useState(null);
   let [tokens, setTokens] = useState(null);
-  const baseURL = 'http://localhost:8000';
+
 
   const loginUser = async (e)=>{
     e.preventDefault();
-    let response = await axios.post(`${baseURL}/api/token/`, {'username':e.target.username.value, 'password':e.target.password.value});
-    let data = await response.data;
-    let authUser = jwt_decode(data.access);
+    let response = await fetch('http://localhost:8000/api/token/', {
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json'
+
+      },
+      body: JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
+    })
+    let data = await response.json()
+    console.log('response:',response)
+    console.log('data:',data)
     if(response.status === 200){
-      localStorage.setItem('authTokens', JSON.stringify(data));
+      localStorage.setItem('authTokens', JSON.stringify(data))
+      localStorage.setItem('user', JSON.stringify(jwt_decode(data.access)))
       setTokens(data)
-      let profileResponse = await axios.get(`${baseURL}/api/skaters/${authUser.user_id}`)
-      console.log(profileResponse);
-      if(profileResponse.status === 200){
-        setUser(profileResponse.data)
-        localStorage.setItem('user', JSON.stringify(profileResponse.data))
-      }
+      setUser(jwt_decode(data.access))
     }
   }
 
@@ -37,12 +40,21 @@ export const AuthProvider = ({children}) => {
   }
   
   const updateToken= async()=>{
-    let response = await axios.post(`${baseURL}/api/refresh/`, {'refresh': tokens.refresh});
-    let data = await response.data;
+    let response = await fetch('http://localhost:8000/api/token/refresh/', {
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json'
 
+      },
+      body: JSON.stringify({'refresh': tokens.refresh})
+    })
+    let data = await response.json()
     if (response.status === 200){
       localStorage.setItem('authTokens', JSON.stringify(data))
+      localStorage.setItem('user', JSON.stringify(jwt_decode(data.access)))
       setTokens(data)
+      setUser(jwt_decode(data.access))
+      
     } else{
       logoutUser()
     }
@@ -62,6 +74,7 @@ export const AuthProvider = ({children}) => {
     let fourMinutes = 1000*60*4;
     if (tokens){
       let interval = setInterval(()=>{
+        console.log(`refresh req sent with request token ${tokens.refresh}`)
         updateToken();
       }, fourMinutes)
       return ()=>clearInterval(interval)
