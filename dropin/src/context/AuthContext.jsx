@@ -10,6 +10,8 @@ export const AuthProvider = ({children}) => {
   let [loading, setLoading] = useState(true);
   let [user, setUser] = useState(null);
   let [tokens, setTokens] = useState(null);
+
+  const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN;
   const baseURL = 'http://localhost:8000';
 
   const loginUser = async (e)=>{
@@ -37,7 +39,7 @@ export const AuthProvider = ({children}) => {
   }
   
   const updateToken= async()=>{
-    let response = await axios.post(`${baseURL}/api/refresh/`, {'refresh': tokens.refresh});
+    let response = await axios.post(`${baseURL}/api/token/refresh/`, {'refresh': tokens.refresh});
     let data = await response.data;
 
     if (response.status === 200){
@@ -74,7 +76,9 @@ export const AuthProvider = ({children}) => {
     user: user,
     loginUser:loginUser,
     logoutUser: logoutUser,
-    updateToken: updateToken
+    updateToken: updateToken,
+    baseURL: baseURL,
+    mapboxAccessToken: mapboxAccessToken
 
   }
   return(
