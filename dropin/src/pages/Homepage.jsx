@@ -1,14 +1,13 @@
 import {useState, useEffect, useContext} from 'react';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import Map, {Marker, Popup} from "react-map-gl";
 
 export default function Homepage(){
   const [spots, setSpots] = useState([]);
   const [popupInfo, setPopupInfo] = useState(null);
-  const [clickedCoordinates, setClickedCoordinates] = useState(null);
-  let {baseURL, mapboxAccessToken} = useContext(AuthContext)
+  let {baseURL, mapboxAccessToken, clickedCoordinates, setClickedCoordinates} = useContext(AuthContext)
   let navigate = useNavigate()
   const getSpots = async ()=>{
     let response = await axios.get(`${baseURL}/api/spots`)
@@ -27,7 +26,7 @@ export default function Homepage(){
   },[])
   const handleMapClick = e=>{
     console.log(e.lngLat.lat);
-    setClickedCoordinates({lat: e.lngLat.lat, lng: e.lngLat.lng})
+    setClickedCoordinates({lat: e.lngLat.lat.toFixed(7), lng: e.lngLat.lng.toFixed(7)})
   }
   return(
     <div className="container">
@@ -35,12 +34,7 @@ export default function Homepage(){
         <h2>Spots near Richmond, VA</h2>
       </div>
       <section className="mapContainer">
-        {clickedCoordinates && (
-          <div>
-            <p>LNG:<br/>{clickedCoordinates.lng.toFixed(7)}</p>
-            <p>LAT:<br/>{clickedCoordinates.lat.toFixed(7)}</p>
-          </div>
-        )}
+       
         <Map mapboxAccessToken={mapboxAccessToken}
         onClick = {handleMapClick}
         style={{
@@ -81,6 +75,22 @@ export default function Homepage(){
           </Popup>
         )}
         </Map>
+        
+          <div className="addSpotSection">
+            <h2>Add a new spot</h2>
+            <p>Click the map to update coordinates</p>
+            <div className="coordinateFlex">
+            <p><strong>LNG:</strong><br/>{clickedCoordinates ? clickedCoordinates.lng : "click map"}</p>
+            <p><strong>LAT:</strong><br/>{clickedCoordinates ? clickedCoordinates.lat : "click map"}</p>
+            </div>
+            <div className="btnSection">
+              <Link to="/addSpot">
+                Add spot here
+              </Link>
+            </div>
+
+          </div>
+       
       </section>
       <section className="spotPreviews">
         <h3>Spot details</h3>

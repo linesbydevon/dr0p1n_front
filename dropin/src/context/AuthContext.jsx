@@ -10,7 +10,7 @@ export const AuthProvider = ({children}) => {
   let [loading, setLoading] = useState(true);
   let [user, setUser] = useState(null);
   let [tokens, setTokens] = useState(null);
-
+  const [clickedCoordinates, setClickedCoordinates] = useState(null);
   const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN;
   const baseURL = 'http://localhost:8000';
 
@@ -78,7 +78,9 @@ export const AuthProvider = ({children}) => {
     logoutUser: logoutUser,
     updateToken: updateToken,
     baseURL: baseURL,
-    mapboxAccessToken: mapboxAccessToken
+    mapboxAccessToken: mapboxAccessToken,
+    clickedCoordinates,
+    setClickedCoordinates
 
   }
   return(
