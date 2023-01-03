@@ -451,8 +451,45 @@ main .container{
   margin-top: 16px;
 }
 
-.obstaclesSection{
+.obstaclesSection form{
+  display: flex;
+  gap: 4px;
+  margin-top: 16px;
 }
+
+.obstaclesSection input{
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 8px 8px;
+  border-bottom: 2px solid rgba(var(--tint8),1);
+  background: rgba(var(--tint8),1);
+  margin-bottom: 16px;
+  font-family: inherit;
+  transition: all .6s ease;
+}
+
+.obstaclesSection input:focus{
+  border-color: rgba(var(--brandLight),1);
+  outline: none;
+}
+
+.obstaclesSection form button{
+  width: 39px;
+  height: 39px;
+  border: none;
+  background-color: rgba(var(--brandDark),1);
+  border-bottom: 4px solid rgba(var(--brandDark),1);
+  padding: 12px 16px 8px;
+  font-weight: bold;
+  color: rgba(var(--white,1));
+  cursor: pointer;
+  margin: 0 auto;
+  font-size: 1rem;
+  transition: all .6s ease;
+}
+
+
 
 .obstaclesSection .obstacleContainer{
   position: relative;

@@ -92,7 +92,7 @@ export default function SpotDetail() {
                         </p>
                       </div>
                       <h3>City sanctioned</h3>
-                      <p>{spot.sanctioned ? "Yes" : "No"}</p>
+                      <p>{spot.sactioned ? "Yes" : "No"}</p>
                       <h3>Security</h3>
                       <p>{spot.security ? "Yes" : "No"}</p>
                       <Obstacles spot={spot} changeToggle={changeToggle}
