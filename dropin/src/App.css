@@ -429,16 +429,47 @@ main .container{
   gap: 16px;
 }
 
+.flex .right{
+  width: 100%;
+}
+
 .bordered .basicInfo{
-  padding-top: 8px;
+  padding: 8px;
   text-align: center;
   width: 100%;
 }
+
 
 .basicInfo .coordinateFlex{
   display:flex;
   gap: 16px;
   justify-content: center;
+  padding: 16px 0;
+}
+
+.basicInfo h3{
+  margin-top: 16px;
+}
+
+.obstaclesSection{
+}
+
+.obstaclesSection .obstacleContainer{
+  position: relative;
+  border: 1px solid rgba(var(--tint4),1);
+  padding: 4px 16px;
+  border-radius: 8px;
+  background: rgba(var(--white),1)
+
+}
+
+.obstaclesSection .obstacleContainer svg{
+  position: absolute;
+  transform: scale(50%);
+  top: -10px;
+  right: 0;
+  fill: rgba(var(--tint4),1);
+  cursor: pointer;
 }
 
 .commentsSection{

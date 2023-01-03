@@ -44,7 +44,8 @@ export default function Homepage(){
         initialViewState={{
           longitude: -77.434769,
           latitude: 37.541290,
-          zoom: 9
+          zoom: 9,
+          minZoom: 9
         }}
         mapStyle="mapbox://styles/devonrjones/clbzflrob001b15pec1hx6wj4"
         >
