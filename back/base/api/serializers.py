@@ -34,6 +34,11 @@ class ObstacleSerializer(serializers.ModelSerializer):
         model = Obstacle
         fields = '__all__'
 
+class AddCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'
+
 class CommentSerializer(serializers.ModelSerializer):
     user = SkaterSerializer(
         many = False,
