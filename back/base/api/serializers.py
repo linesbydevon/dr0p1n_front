@@ -20,6 +20,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ("id", "username", "password")
 
+class AddSkaterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skater
+        fields = '__all__'
+
 class SkaterSerializer(serializers.ModelSerializer):
     user = UserSerializer(
         many = False,

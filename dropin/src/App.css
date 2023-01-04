@@ -28,6 +28,7 @@ html{
   --brandLight: 8, 140, 116;
   min-height: 100vh;
   background: linear-gradient(to bottom, rgba(var(--white),1),rgba(var(--tint9),.9), rgba(var(--tint8),0)), url('https://images.freejpg.com.ar/900/2606/shoes-skateboard-park-youth-sport-extreme-fun-F100029238.jpg');
+  background-attachment: fixed;
   background-size: cover;
   backdrop-filter: grayscale(100%);
   background-position: bottom;

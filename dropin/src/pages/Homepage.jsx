@@ -28,6 +28,7 @@ export default function Homepage(){
     console.log(e.lngLat.lat);
     setClickedCoordinates({lat: e.lngLat.lat.toFixed(7), lng: e.lngLat.lng.toFixed(7)})
   }
+  
   return(
     <div className="container">
       <div className="pageHeader">

@@ -13,6 +13,7 @@ import Register from './pages/Register'
 
 function App() {
   let {user} = useContext(AuthContext)
+  console.log(localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')):null)
   return (
     <div className="App">
       <div>

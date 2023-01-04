@@ -8,7 +8,7 @@ export default AuthContext;
 
 export const AuthProvider = ({children}) => {
   let [loading, setLoading] = useState(true);
-  let [user, setUser] = useState(null);
+  let [user, setUser] = useState(localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')):null);
   let [tokens, setTokens] = useState(null);
   const [clickedCoordinates, setClickedCoordinates] = useState(null);
   const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -23,7 +23,6 @@ export const AuthProvider = ({children}) => {
       localStorage.setItem('authTokens', JSON.stringify(data));
       setTokens(data)
       let profileResponse = await axios.get(`${baseURL}/api/skaters/${authUser.user_id}`)
-      console.log(profileResponse);
       if(profileResponse.status === 200){
         setUser(profileResponse.data)
         localStorage.setItem('user', JSON.stringify(profileResponse.data))
@@ -55,7 +54,8 @@ export const AuthProvider = ({children}) => {
       setTokens(localStorage.getItem('authTokens'))
     }
     if(localStorage.getItem('user')){
-      setUser(localStorage.getItem('user'))
+      setUser(JSON.parse(localStorage.getItem('user')))
+      console.log(user)
     }
   
   },[])
