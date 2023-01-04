@@ -606,6 +606,131 @@ main .container{
   padding: 16px 0 8px 40px;
 }
 
+.addSpotForm{
+  padding: 24px 16px;
+  width: 100%;
+  max-width: 320px;
+  margin: 16px auto;
+  background: rgba(var(--white),1);
+  border-radius: 16px;
+  box-shadow: 0px 4px 8px 4px rgba(0,0,0,0.03);
+}
+
+.addSpotForm label{
+  display: block;
+  margin-bottom: 4px;
+}
+
+.addSpotForm .radioGroup{
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.addSpotForm .radioGroup label{
+  display: initial;
+  padding-left: 4px;
+  cursor: pointer;
+}
+
+.addSpotForm input[type="text"]{
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 8px 8px;
+  border-bottom: 2px solid rgba(var(--tint8),1);
+  background: rgba(var(--tint8),1);
+  margin-bottom: 16px;
+  font-family: inherit;
+  transition: all .6s ease;
+}
+
+.addSpotForm input[type="text"]:focus{
+  border-color: rgba(var(--brandLight),1);
+  outline: none;
+}
+
+.addSpotForm input[type="radio"]{
+  border: 1px solid rgba(var(--tint8),1);;
+  outline: none;
+  appearance: none;
+  background: rgba(var(--tint8),1);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  bottom: -2px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.addSpotForm input[type="radio"]:checked{
+  background: rgba(var(--brandLight),1);
+  border-color: rgba(var(--brandLight),1);
+}
+
+.addSpotForm input[type="radio"]:focus{
+  border-color: rgba(var(--brandLight),1);
+  background: rgba(var(--tint8),1);
+}
+
+.addSpotForm input[type="file"]{
+  background: rgba(var(--tint8),1);
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 9px 9px 9px 108px;
+  position: relative;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.addSpotForm input[type="file"]::file-selector-button{
+  box-sizing: border-box;
+  background: rgba(var(--brandDark),1);
+  color: rgba(var(--white),1);
+  position: absolute;
+  height: 39px;
+  left: 0;
+  top: 0;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  transition: all .6s ease;
+}
+
+.addSpotForm input[type="file"]::file-selector-button:hover{
+  background: rgba(var(--brandLight),1);
+}
+
+
+.addSpotForm button{
+  width: 100%;
+  border: none;
+  background-color: rgba(var(--brandDark),1);
+  border-bottom: 4px solid rgba(var(--brandDark),1);
+  padding: 12px 16px 8px;
+  font-weight: bold;
+  color: rgba(var(--white,1));
+  cursor: pointer;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  transition: all .6s ease;
+}
+
+.addSpotForm button:hover{
+  background-color: rgba(var(--brandLight),1);
+}
+
+.addSpotForm button:focus{
+  outline: none;
+  background-color: rgba(var(--brandLight),1);
+}
+
+
+
 footer{
   background: rgba(var(--white),.32);
   backdrop-filter: blur(100px);
