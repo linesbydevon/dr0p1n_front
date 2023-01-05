@@ -6,7 +6,6 @@ import SVGSettings from "../assets/SVGSettings";
 
 export default function Header() {
   let { user, logoutUser, tokens } = useContext(AuthContext);
-  console.log(user);
   return (
     <header>
       <div className="container">
