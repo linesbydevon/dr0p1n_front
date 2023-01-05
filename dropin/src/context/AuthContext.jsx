@@ -80,7 +80,8 @@ export const AuthProvider = ({children}) => {
     baseURL: baseURL,
     mapboxAccessToken: mapboxAccessToken,
     clickedCoordinates,
-    setClickedCoordinates
+    setClickedCoordinates,
+    setUser
 
   }
   return(
