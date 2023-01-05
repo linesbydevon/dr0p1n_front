@@ -673,7 +673,6 @@ main .container{
 
 .addSpotForm input[type="radio"]:focus{
   border-color: rgba(var(--brandLight),1);
-  background: rgba(var(--tint8),1);
 }
 
 .addSpotForm input[type="file"]{
