@@ -9,7 +9,7 @@ import SVGEdit from "../assets/SVGEdit";
 import LogoSVG from "../assets/LogoSVG";
 
 export default function SpotDetail() {
-  let { baseURL, mapboxAccessToken,user, setUser } = useContext(AuthContext);
+  let { baseURL, mapboxAccessToken, user, setUser } = useContext(AuthContext);
   const spotId = useParams();
   const [spot, setSpot] = useState(false);
   const [commentPosted, setCommentPosted] = useState(true);
@@ -19,42 +19,39 @@ export default function SpotDetail() {
     let response = await axios.get(`${baseURL}/api/spots/${spotId.id}`);
     let data = await response.data;
     setSpot(data);
-    console.log(data);
   };
 
-  const handleDropIn=async ()=>{
-    console.log(user);
-    console.log(spot.id);
-    if(user.dropin === spot.id){
+  const handleDropIn = async () => {
+    if (user.dropin === spot.id) {
       let data = {
-        dropin : null
-      }
-      console.log(data)
-      let response = await axios.put(`${baseURL}/api/skaters/${user.id}/`, data)
-      console.log(response)
-      if(response.status===200){
-        setUser(response.data)
+        dropin: null,
+      };
+      let response = await axios.put(
+        `${baseURL}/api/skaters/${user.id}/`,
+        data
+      );
+      if (response.status === 200) {
+        setUser(response.data);
         setChangeToggle(!changeToggle);
       }
     } else {
       let data = {
-        dropin : spot.id
-      }
-      console.log(data)
-      let response = await axios.put(`${baseURL}/api/skaters/${user.id}/`, data)
-      console.log(response)
-      if(response.status===200){
-        setUser(response.data)
+        dropin: spot.id,
+      };
+      let response = await axios.put(
+        `${baseURL}/api/skaters/${user.id}/`,
+        data
+      );
+      if (response.status === 200) {
+        setUser(response.data);
         setChangeToggle(!changeToggle);
       }
     }
-  }
+  };
 
   useEffect(() => {
     getSpot();
   }, [changeToggle]);
-
-
 
   return (
     <div className="container">
@@ -95,7 +92,9 @@ export default function SpotDetail() {
                       }}
                     ></div>
                     <div className="basicInfo">
-                      <SVGEdit onClick={()=>navigate(`/updateSpot/${spot.id}`)}/>
+                      <SVGEdit
+                        onClick={() => navigate(`/updateSpot/${spot.id}`)}
+                      />
                       <h3>Location</h3>
                       {spot.address ? (
                         <p>
@@ -129,25 +128,28 @@ export default function SpotDetail() {
                       <p>{spot.sactioned ? "Yes" : "No"}</p>
                       <h3>Security</h3>
                       <p>{spot.security ? "Yes" : "No"}</p>
-                      <Obstacles spot={spot} changeToggle={changeToggle}
-                      setChangeToggle={setChangeToggle}/>
+                      <Obstacles
+                        spot={spot}
+                        changeToggle={changeToggle}
+                        setChangeToggle={setChangeToggle}
+                      />
                     </div>
                   </div>
                   <div className="right">
                     <div className="dropinSection">
                       <h3>Active DR0P1Ns</h3>
-                      {
-                        spot.dropins.length ? spot.dropins.map(dropin => 
-                        <div className="dropin">
-                          <img src={dropin.image} alt=""/>
-                          <p>{dropin.user.username}</p>
-                        </div>
-                        )
-                        :
+                      {spot.dropins.length ? (
+                        spot.dropins.map((dropin) => (
+                          <div className="dropin">
+                            <img src={dropin.image} alt="" />
+                            <p>{dropin.user.username}</p>
+                          </div>
+                        ))
+                      ) : (
                         <p>No active DR0P1Ns</p>
-                      }
+                      )}
                       <div onClick={handleDropIn} className="dropinButton">
-                        <LogoSVG/>
+                        <LogoSVG />
                       </div>
                     </div>
                     <CommentSection

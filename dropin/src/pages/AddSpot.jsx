@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import Map, { Marker, Popup } from "react-map-gl";
+import Map, { Marker} from "react-map-gl";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,6 @@ export default function AddSpot() {
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleMapClick = (e) => {
-    console.log(e.lngLat.lat);
     setClickedCoordinates({
       lat: e.lngLat.lat.toFixed(7),
       lng: e.lngLat.lng.toFixed(7),
@@ -29,16 +28,11 @@ export default function AddSpot() {
     formField.append("address", e.target.address.value);
     formField.append("sactioned", e.target.sanctioned.value);
     formField.append("security", e.target.security.value);
-    console.log(formField);
-    // let response = await axios.post(`${baseURL}/api/spots/`, data)
-
-    // console.log(response)
     let response = await axios({
       method: "post",
       url: `${baseURL}/api/spots/`,
       data: formField,
     });
-    console.log(response)
     if (response.status === 201) {
       let spotId = response.data.id;
       navigate(`/spots/${spotId}`)

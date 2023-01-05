@@ -6,10 +6,10 @@ import SVGVisibility from "../assets/SVGVisibility";
 import axios from "axios";
 
 export default function LoginPage() {
+  const { baseURL } = useContext(AuthContext);
   let [visibility, setVisibility] = useState(false);
   let navigate = useNavigate();
   const toggleVisibility = () => {
-    console.log("clicked");
     setVisibility(!visibility);
   };
   const register = async (e) => {
@@ -18,27 +18,22 @@ export default function LoginPage() {
       username: e.target.username.value,
       password: e.target.password.value,
     };
-    let response = await axios.post("http://localhost:8000/api/signup/", body);
+    let response = await axios.post(`${baseURL}/api/signup/`, body);
     if (response.status === 201) {
       let userId = response.data.id;
-      console.log(userId);
       let profileBody = {
         image: null,
         user: userId,
         dropin: null,
       };
       let profileResponse = await axios.post(
-        "http://localhost:8000/api/addskater/",
+        `${baseURL}/api/addskater/`,
         profileBody
       );
-      console.log(profileResponse);
       if (profileResponse.status === 201) {
         navigate("/");
       }
-    } else {
-      console.log(response.message);
     }
-    console.log("response:", response);
   };
   return (
     <section className="form_login_register">
