@@ -82,7 +82,6 @@ export default function UpdateSpot() {
 
   return (
     <div className="container">
-      <h2>Add a spot</h2>
       {spot ? (
         <>
           <section className="mapContainer">
@@ -210,7 +209,7 @@ export default function UpdateSpot() {
               </span>
             </div>
 
-            <button>Create spot</button>
+            <button>Update spot</button>
           </form>
         </>
       ) : (

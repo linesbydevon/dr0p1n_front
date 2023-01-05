@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import {useNavigate} from 'react-router-dom';
 import AuthContext from "../context/AuthContext";
 import LogoSvg from "../assets/LogoSVG";
 import SVGLogout from "../assets/SVGLoutout";
@@ -6,10 +7,11 @@ import SVGSettings from "../assets/SVGSettings";
 
 export default function Header() {
   let { user, logoutUser, tokens } = useContext(AuthContext);
+  let navigate = useNavigate();
   return (
     <header>
       <div className="container">
-        <LogoSvg />
+        <LogoSvg handleClick={()=>navigate('/')}/>
       </div>
       {tokens && user && (
         <div className="loggedIn">

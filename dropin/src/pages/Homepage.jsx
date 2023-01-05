@@ -37,9 +37,6 @@ export default function Homepage() {
 
   return (
     <div className="container">
-      <div className="pageHeader">
-        <h2>Spots near Richmond, VA</h2>
-      </div>
       <section className="mapContainer">
         <Map
           mapboxAccessToken={mapboxAccessToken}
@@ -104,7 +101,7 @@ export default function Homepage() {
         </div>
       </section>
       <section className="spotPreviews">
-        <h3>Spot details</h3>
+       
         <div className="spotCardMapping">
           {spots.length ? (
             spots.map((spot) => (

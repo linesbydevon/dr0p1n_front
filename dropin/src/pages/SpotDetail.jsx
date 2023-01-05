@@ -54,7 +54,7 @@ export default function SpotDetail() {
   }, [changeToggle]);
 
   return (
-    <div className="container">
+    <div className="container spotDetail">
       {spot ? (
         <>
           <section className="mapContainer">
@@ -137,6 +137,9 @@ export default function SpotDetail() {
                   </div>
                   <div className="right">
                     <div className="dropinSection">
+                    <div onClick={handleDropIn} className={user.dropin === spot.id ? "dropinButton current" : "dropinButton"}>
+                        <LogoSVG />
+                      </div>
                       <h3>Active DR0P1Ns</h3>
                       {spot.dropins.length ? (
                         spot.dropins.map((dropin) => (
@@ -148,9 +151,7 @@ export default function SpotDetail() {
                       ) : (
                         <p>No active DR0P1Ns</p>
                       )}
-                      <div onClick={handleDropIn} className="dropinButton">
-                        <LogoSVG />
-                      </div>
+                      
                     </div>
                     <CommentSection
                       spot={spot}
