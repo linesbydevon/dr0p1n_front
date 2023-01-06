@@ -41,11 +41,18 @@ Users can check spots to see how many active DR0P1Ns there are. This has a coupl
 
 ![DR0P1N ERD AND WIREFRAME](./readMeAssets/dr0p1n_ERD_wireframe.jpg)
 
+### Execution
+
+![DR0P1N Login page](./readMeAssets/login.png)
+![DR0P1N home page](./readMeAssets/home.png)
+![DR0P1N spot detail page](./readMeAssets/spotdetail.png)
+![DR0P1N home page](./readMeAssets/addspot.png)
+
 ### TECHNOLOGY AND RESOURCES
 
 #### FRONT END TECH
 1. [React.js](https://beta.reactjs.org/) for frontend
-2. [React Leaflet](https://react-leaflet.js.org/) for map rendering and interactivity
+2. [Mapbox](https://docs.mapbox.com/) for map rendering and interactivity
 
 #### BACK END TECH
 1. [Django](https://docs.djangoproject.com/en/4.1/)
@@ -60,4 +67,10 @@ Users can check spots to see how many active DR0P1Ns there are. This has a coupl
 2. [Refreshing Tokens With Axios Interceptors](https://youtu.be/16-1mTdGBoM) | Dennis Ivy | Youtube
 3. [JWT.IO](https://jwt.io/) for decoding tokens/testing.
 
+## TO-DO / ROADMAP
+
+1. Refactor code
+2. Play up the social element of the app to include profiles, statuses, friend-lists and notifications (X friend is skating at Y spot).
+3. Add front-end CRUD for user to update profile picture, username, change password, etc.
+4. Enable photo upload on comments (model supports this already but due to time constraints I didnt implement it).
 

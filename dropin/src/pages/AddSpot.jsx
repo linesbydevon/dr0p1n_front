@@ -40,7 +40,7 @@ export default function AddSpot() {
   };
   return (
     <div className="container">
-      <h2>Add a spot</h2>
+      
       <section className="mapContainer">
         <Map
           onClick={handleMapClick}
