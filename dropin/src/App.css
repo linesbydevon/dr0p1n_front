@@ -128,7 +128,7 @@ header .logoSVG:hover{
 .loggedIn .username{
   margin-left: 56px;
   position: relative;
-  padding-left: 28px;
+  padding-left: 0px;
 }
 
 .loggedIn .logoutSection a{

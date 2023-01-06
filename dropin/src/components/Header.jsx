@@ -26,7 +26,7 @@ export default function Header() {
                 alt="profile avatar"
               />
               <p className="username">
-                {user.user.username} <SVGSettings />
+                {user.user.username}
               </p>
             </div>
             <div className="logoutSection">
