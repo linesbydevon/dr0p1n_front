@@ -48,6 +48,29 @@ Users can check spots to see how many active DR0P1Ns there are. This has a coupl
 ![DR0P1N spot detail page](./readMeAssets/spotdetail.png)
 ![DR0P1N home page](./readMeAssets/addspot.png)
 
+#### Code sample
+
+Here's a fun bit of code I wanted to present regarding how I handled linking to Google maps. If an address exists for the spot, I split the address at spaces then rejoin them using plus signs inside a template literal containing the url.
+
+```
+{spot.address ? (
+                        <p>
+                          <a
+                            className="inlineLink"
+                            href={`http://maps.google.com/maps?q=${spot.address
+                              .split(" ")
+                              .join("+")}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {spot.address.split(",")[0]}
+                          </a>
+                        </p>
+                      ) : (
+                        <p>Street address unknown</p>
+                      )}
+```
+
 ### TECHNOLOGY AND RESOURCES
 
 #### FRONT END TECH
