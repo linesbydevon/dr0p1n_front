@@ -73,4 +73,5 @@ Users can check spots to see how many active DR0P1Ns there are. This has a coupl
 2. Play up the social element of the app to include profiles, statuses, friend-lists and notifications (X friend is skating at Y spot).
 3. Add front-end CRUD for user to update profile picture, username, change password, etc.
 4. Enable photo upload on comments (model supports this already but due to time constraints I didnt implement it).
+5. Add form validation and error handling (little to none atm)
 
