@@ -148,7 +148,6 @@ DATABASES = {
     'default': dj_database_url.config(conn_max_age=600)
 }
 
-DATABASE_URL='postgres://dropinuser:dropin@localhost:8000/base_dropin'
 
 
 # Password validation

@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   let [tokens, setTokens] = useState(null);
   const [clickedCoordinates, setClickedCoordinates] = useState(null);
   const mapboxAccessToken = process.env.REACT_APP_MAPBOX_TOKEN;
-  const baseURL = "http://localhost:8000";
+  const baseURL = "https://frozen-sands-41007.herokuapp.com/";
 
   const loginUser = async (e) => {
     e.preventDefault();
