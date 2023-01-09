@@ -3,6 +3,8 @@ import AuthContext from "../context/AuthContext";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Map, { Marker, Popup } from "react-map-gl";
+import mapboxgl from 'mapbox-gl';
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 export default function Homepage() {
   const [spots, setSpots] = useState([]);
