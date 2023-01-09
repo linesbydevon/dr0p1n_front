@@ -4,9 +4,10 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Map, { Marker, Popup } from "react-map-gl";
 import mapboxgl from 'mapbox-gl';
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 
 export default function Homepage() {
+  mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
   const [spots, setSpots] = useState([]);
   const [popupInfo, setPopupInfo] = useState(null);
   let {
