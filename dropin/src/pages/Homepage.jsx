@@ -7,7 +7,7 @@ import mapboxgl from 'mapbox-gl';
 
 
 export default function Homepage() {
-  mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+  
   const [spots, setSpots] = useState([]);
   const [popupInfo, setPopupInfo] = useState(null);
   let {
