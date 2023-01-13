@@ -4,6 +4,7 @@ import AuthContext from "../context/AuthContext";
 import LogoSvg from "../assets/LogoSVG";
 import SVGLogout from "../assets/SVGLoutout";
 import SVGSettings from "../assets/SVGSettings";
+import defaultPFP from "../assets/defaultPFP.png"
 
 export default function Header() {
   let { user, logoutUser, tokens } = useContext(AuthContext);
@@ -19,9 +20,9 @@ export default function Header() {
             <div className="profileInfo">
               <img
                 src={
-                  user.image
-                    ? user.image
-                    : "https://static.vecteezy.com/system/resources/thumbnails/002/534/006/small/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg"
+                  user.imageURL
+                    ? user.imageURL
+                    : defaultPFP
                 }
                 alt="profile avatar"
               />

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Map, { Marker, Popup } from "react-map-gl";
 import mapboxgl from 'mapbox-gl';
+import spotFPO from "../assets/spotFPO.jpg"
 
 
 export default function Homepage() {
@@ -113,7 +114,7 @@ export default function Homepage() {
                 className="spotCard"
                 key={spot.id}
                 id={spot.id}
-                style={{ backgroundImage: `url(${spot.image})` }}
+                style={{ backgroundImage: `url(${spot.imageURL ? spot.imageURL : spotFPO})` }}
               >
                 <div className="spotInfo">
                   <h4>{spot.name}</h4>

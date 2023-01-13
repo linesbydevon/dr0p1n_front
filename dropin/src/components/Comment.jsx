@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import SVGDelete from "../assets/SVGDelete";
 import axios from "axios";
+import defaultPFP from "../assets/defaultPFP.png"
 export default function Comment({
   comment,
   changeToggle,
@@ -22,9 +23,9 @@ export default function Comment({
       <div className="commentUserInfo">
         <img
           src={
-            comment.user.image
-              ? comment.user.image
-              : "https://static.vecteezy.com/system/resources/thumbnails/002/534/006/small/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg"
+            comment.user.imageURL
+              ? comment.user.imageURL
+              : defaultPFP
           }
           alt="profile avatar"
         />

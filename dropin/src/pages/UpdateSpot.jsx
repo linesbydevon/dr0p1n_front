@@ -11,6 +11,7 @@ export default function UpdateSpot() {
   const [formState, setFormState] = useState({
     id: null,
     image: null,
+    imageURL: null,
     name: null,
     lng: null,
     lat: null,
@@ -47,15 +48,17 @@ export default function UpdateSpot() {
   };
 
   const handleSanctionedChange = (e) => {
-    setFormState({ ...formState, sanctioned: e.target.value });
+    setFormState({ ...formState, sactioned: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let formField = new FormData();
     formField.append("id", spot.id);
-    !(formState.image === null) &&
-      formField.append("image", e.target.image.files[0]);
+    // !(formState.image === null) &&
+    //   formField.append("image", e.target.image.files[0]);
+    !(formState.imageURL === null) &&
+      formField.append("imageURL", e.target.imageURL.value);
     !(formState.name === null)
       ? formField.append("name", e.target.name.value)
       : formField.append("name", spot.name);
@@ -63,9 +66,9 @@ export default function UpdateSpot() {
     !(formState.lat === null) && formField.append("lat", e.target.lat.value);
     !(formState.address === null) &&
       formField.append("address", e.target.address.value);
-    !(formState.name === null) &&
+    !(formState.sactioned === null) &&
       formField.append("sactioned", e.target.sanctioned.value);
-    !(formState.name === null) &&
+    !(formState.security === null) &&
       formField.append("security", e.target.security.value);
 
 
@@ -127,12 +130,25 @@ export default function UpdateSpot() {
               }
             ></input>
             <label>Spot image:</label>
-            <input
+            {/* <input
               id="image"
               name="image"
               type="file"
               onChange={() => setFormState({ ...formState, image: true })}
+            ></input> */}
+            <input
+              id="imageURL"
+              name="imageURL"
+              type="text"
+              placeholder={spot.name}
+              onChange={handleChange}
+              value={
+                formState.imageURL || formState.imageURL === ""
+                  ? formState.imageURL
+                  : spot.imageURL
+              }
             ></input>
+
             <label>Street Address (if applicable)</label>
             <input
               id="address"

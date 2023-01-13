@@ -7,6 +7,7 @@ import CommentSection from "../components/CommentSection";
 import Obstacles from "../components/Obstacles";
 import SVGEdit from "../assets/SVGEdit";
 import LogoSVG from "../assets/LogoSVG";
+import spotFPO from "../assets/spotFPO.jpg"
 
 export default function SpotDetail() {
   let { baseURL, mapboxAccessToken, user, setUser } = useContext(AuthContext);
@@ -85,9 +86,9 @@ export default function SpotDetail() {
                       className="spotCard"
                       style={{
                         backgroundImage: `url(${
-                          spot.image
-                            ? spot.image
-                            : "https://abilityrehabilitation.com/wp-content/uploads/2018/10/fpo.png"
+                          spot.imageURL
+                            ? spot.imageURL
+                            : spotFPO
                         })`,
                       }}
                     ></div>

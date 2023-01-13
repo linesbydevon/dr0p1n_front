@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Spot(models.Model):
   image = models.ImageField(upload_to='uploads/images/', null=True, blank=True)
+  imageURL = models.CharField(max_length=150, null=True, blank=True)
   name = models.CharField(max_length=150, null=False, blank=False)
   lng = models.DecimalField(max_digits = 10,decimal_places=7, null=False, blank=False, default= 0.00)
   lat = models.DecimalField(max_digits = 10,decimal_places=7, null=False, blank=False, default= 0.00)
@@ -18,6 +19,7 @@ class Spot(models.Model):
 
 class Skater(models.Model):
   image = models.ImageField(upload_to='uploads/images/', null=True, blank=True)
+  imageURL = models.CharField(max_length=150, null=True, blank=True)
   user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
   dropin = models.ForeignKey(Spot, on_delete=models.SET_NULL, related_name='dropins', null=True, blank=True)
 
@@ -26,6 +28,7 @@ class Skater(models.Model):
 
 class Comment(models.Model):
   image = models.ImageField(upload_to='uploads/images/', null=True, blank=True)
+  imageURL = models.CharField(max_length=150, null=True, blank=True)
   spot = models.ForeignKey(Spot, on_delete=models.CASCADE, related_name='spotcomments')
   user = models.ForeignKey(Skater, on_delete=models.CASCADE, related_name='usercomments')
   content = models.TextField(null=True, blank=True)

@@ -21,7 +21,8 @@ export default function AddSpot() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let formField = new FormData();
-    formField.append("image", e.target.image.files[0]);
+    // formField.append("image", e.target.image.files[0]);
+    formField.append("imageURL", e.target.imageURL.value);
     formField.append("name", e.target.name.value);
     formField.append("lng", e.target.lng.value);
     formField.append("lat", e.target.lat.value);
@@ -72,8 +73,10 @@ export default function AddSpot() {
       <form className="addSpotForm" onSubmit={handleSubmit}>
         <label>Spot name:</label>
         <input name="name" type="text"></input>
+        {/* <label>Spot image:</label>
+        <input name="image" type="file"></input> */}
         <label>Spot image:</label>
-        <input name="image" type="file"></input>
+        <input name="imageURL" type="text"></input>
         <label>Street Address (if applicable)</label>
         <input name="address" type="text"></input>
         <label>Longitude</label>
