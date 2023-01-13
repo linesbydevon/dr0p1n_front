@@ -90,7 +90,13 @@ Here's a fun bit of code I wanted to present regarding how I handled linking to 
 2. [Refreshing Tokens With Axios Interceptors](https://youtu.be/16-1mTdGBoM) | Dennis Ivy | Youtube
 3. [JWT.IO](https://jwt.io/) for decoding tokens/testing.
 
-## TO-DO / ROADMAP
+## ROADMAP & UPDATES
+
+### UPDATES
+
+1. (01/13/2023) Updated Django models to add new column for imageURL field. Also removed image upload on frontend for adding/updating spots and replaced with imageURL field (heroku not hosting/serving image uploads).
+
+### TODO
 
 1. Refactor code
 2. Play up the social element of the app to include profiles, statuses, comment likes and replies, friend-lists and notifications (X friend is skating at Y spot, X person responded to Y comment, etc).
@@ -98,4 +104,5 @@ Here's a fun bit of code I wanted to present regarding how I handled linking to 
 4. Enable photo upload on comments (model supports this already but due to time constraints I didnt implement it).
 5. Add form validation and error handling (little to none atm)
 6. Update comment model to include timestamp (right now there's no creation date/time so comments just kind of exist)
+7. Fix bug on homepage spot cards (if you click on the image background within the div it redirects fine to the spot detail but if you click on the name of the spot there are issues).
 

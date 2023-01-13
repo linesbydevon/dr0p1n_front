@@ -16,7 +16,7 @@ export default function Footer() {
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/linesbydevon/"
+              href="https://www.linkedin.com/in/devondevs/"
               rel="noopener noreferrer"
               target="_blank"
             >
