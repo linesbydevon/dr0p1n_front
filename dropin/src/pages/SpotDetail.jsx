@@ -8,6 +8,7 @@ import Obstacles from "../components/Obstacles";
 import SVGEdit from "../assets/SVGEdit";
 import LogoSVG from "../assets/LogoSVG";
 import spotFPO from "../assets/spotFPO.jpg"
+import defaultPFP from "../assets/defaultPFP.png"
 
 export default function SpotDetail() {
   let { baseURL, mapboxAccessToken, user, setUser } = useContext(AuthContext);
@@ -145,7 +146,7 @@ export default function SpotDetail() {
                       {spot.dropins.length ? (
                         spot.dropins.map((dropin) => (
                           <div className="dropin">
-                            <img src={dropin.image} alt="" />
+                            <img src={dropin.imageURL ? dropin.imageURL : defaultPFP} alt="" />
                             <p>{dropin.user.username}</p>
                           </div>
                         ))
